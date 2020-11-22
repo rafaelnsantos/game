@@ -6,6 +6,8 @@ on:
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  UNITY_VERSION: 2019.4.14f1
+  PROJECT_PATH: .
 
 jobs:
   buildForSomePlatforms:
@@ -15,9 +17,9 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - path/to/your/project
+          - ${{ env.PROJECT_PATH }}
         unityVersion:
-          - 2019.4.14f1
+          - ${{ env.UNITY_VERSION }}
         targetPlatform:
           - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows # Build a Windows standalone.
@@ -26,11 +28,11 @@ jobs:
           - iOS # Build an iOS player.
           - Android # Build an Android .apk standalone app.
           - WebGL # WebGL.
-          - WSAPlayer # Build an Windows Store Apps player.
-          - PS4 # Build a PS4 Standalone.
-          - XboxOne # Build a Xbox One Standalone.
-          - tvOS # Build to Apple's tvOS platform.
-          - Switch # Build a Nintendo Switch player.
+          # - WSAPlayer # Build an Windows Store Apps player.
+          # - PS4 # Build a PS4 Standalone.
+          # - XboxOne # Build a Xbox One Standalone.
+          # - tvOS # Build to Apple's tvOS platform.
+          # - Switch # Build a Nintendo Switch player.
     steps:
       - uses: actions/checkout@v2
         with:
