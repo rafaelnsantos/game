@@ -3,6 +3,7 @@ on: [push]
 
 jobs:
   activation:
+    steps:
     # Request manual activation file
     - name: Request manual activation file
       id: getManualLicenseFile
