@@ -3,7 +3,8 @@ on: [push]
 
 jobs:
   activation:
-    steps:
+    name: Request manual activation file 🔑
+    runs-on: ubuntu-latest
     # Request manual activation file
     - name: Request manual activation file
       id: getManualLicenseFile
