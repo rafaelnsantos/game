@@ -6,8 +6,6 @@ on:
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-  UNITY_VERSION: 2019.4.14f1
-  PROJECT_PATH: .
 
 jobs:
   buildForSomePlatforms:
@@ -17,9 +15,9 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - ${{ env.PROJECT_PATH }}
+          - .
         unityVersion:
-          - ${{ env.UNITY_VERSION }}
+          - 2019.4.14f1
         targetPlatform:
           - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows # Build a Windows standalone.
